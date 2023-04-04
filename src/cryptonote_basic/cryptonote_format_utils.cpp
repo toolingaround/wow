@@ -1016,27 +1016,7 @@ namespace cryptonote
   //---------------------------------------------------------------
   bool out_can_be_to_acc(const boost::optional<crypto::view_tag>& view_tag_opt, const crypto::key_derivation& derivation, const size_t output_index, hw::device* hwdev)
   {
-    // If there is no view tag to check, the output can possibly belong to the account.
-    // Will need to derive the output pub key to be certain whether or not the output belongs to the account.
-    if (!view_tag_opt)
-      return true;
-
-    crypto::view_tag view_tag = *view_tag_opt;
-
-    // If the output's view tag does *not* match the derived view tag, the output should not belong to the account.
-    // Therefore can fail out early to avoid expensive crypto ops needlessly deriving output public key to
-    // determine if output belongs to the account.
-    crypto::view_tag derived_view_tag;
-    if (hwdev != nullptr)
-    {
-      bool r = hwdev->derive_view_tag(derivation, output_index, derived_view_tag);
-      CHECK_AND_ASSERT_MES(r, false, "Failed to derive view tag");
-    }
-    else
-    {
-      crypto::derive_view_tag(derivation, output_index, derived_view_tag);
-    }
-    return view_tag == derived_view_tag;
+    return true;
   }
   //---------------------------------------------------------------
   bool is_out_to_acc(const account_keys& acc, const crypto::public_key& output_public_key, const crypto::public_key& tx_pub_key, const std::vector<crypto::public_key>& additional_tx_pub_keys, size_t output_index, const boost::optional<crypto::view_tag>& view_tag_opt)
