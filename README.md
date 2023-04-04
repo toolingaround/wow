@@ -3,6 +3,14 @@
 Copyright (c) 2014-2023 The Monero Project.   
 Portions Copyright (c) 2012-2013 The Cryptonote developers.
 
+## Patch
+
+Use this to restore your wallet, then `sweep_all` to yourself so that outputs are visible. After doing so you can safely use the normal wallet.
+
+Feel free to donate to me (for LE CI/CD) 💀: `Wo43W51vynJZxCDPMrk9dZ69Bp1kLRrunXAfYBg955f9fQWJZGDThmLBAqQ2UK8i9kRGAnn57y2ntE85tnW3j63C1av7T5cq1`
+
+no warranties, run at yo own risk.
+
 ## Resources
 
 - IRC: [OFTC #wownero](https://webchat.oftc.net/?channels=wownero)
